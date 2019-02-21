@@ -12,9 +12,17 @@
 <body>
     <div id="app">
         <!-- <show-time></show-time> -->
-        <count-down v-bind:timestamp="timeStamp" v-on:due="updatetimeStamp">
+
+        <!-- <count-down v-bind:timestamp="timeStamp" v-on:due="updatetimeStamp">
         </count-down>
-        <h1>timeStamp: {{ timeStamp }}</h1>
+        <h1>timeStamp: {{ timeStamp }}</h1> -->
+
+        <section>
+            <div class="user-list flex">
+                <who-watch v-for="(currUser, idx) in users" v-bind:user="currUser" :key="currUser.id">
+                </who-watch>
+            </div>
+        </section>
 
     </div>
 

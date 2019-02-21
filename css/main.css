@@ -1,3 +1,7 @@
+.flex{
+    display: flex;
+}
+
 .show-time {
     background-color: lightgoldenrodyellow;
     width: 600px;
@@ -12,6 +16,14 @@
     text-align: center;
 }
 
+.who-watch {
+    background-color: lightgoldenrodyellow;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    margin: 10px;
+}
+
 .dark-bg {
     background-color: darkblue;
     color: white;
@@ -20,4 +32,8 @@
 .red-bg {
     /* background-color: red; */
     color: red
+}
+
+.user-list img {
+    max-height: 100px;
 }

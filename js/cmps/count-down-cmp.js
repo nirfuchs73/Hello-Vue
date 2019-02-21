@@ -23,7 +23,7 @@ Vue.component('count-down', {
             if (this.count === 10) this.isRed = true;
             this.$emit('due', this.count)
             if (this.count === 0) {
-                this.audioEnd.play();
+                // this.audioEnd.play();
                 clearInterval(this.interval);
             }
         }
