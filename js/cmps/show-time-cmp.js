@@ -5,16 +5,20 @@ Vue.component('show-time', {
                 Show Time
             </h1>
             <!--<button v-on:click="darken()">Click me</button>-->
+            <img v-bind:src="imgUrl" />
             <!--<h1>{{time}}</h1>-->
             <h1>{{formattedTime}}</h1>
-            <h1>{{formattedSeason}}</h1>
+            <!--<h1>{{formattedSeason}}</h1>-->
+            
         </section>
     `,
     data() {
         return {
             val: this.init,
             isDark: false,
-            time: new Date()
+            time: new Date(),
+            season: null,
+            interval: null
         }
     },
     methods: {
@@ -24,8 +28,17 @@ Vue.component('show-time', {
         },
         updateTime() {
             this.time = new Date();
+            // if(this.time.getSeconds() === 0) clearInterval(this.interval);
+        },
+        getSeason() {
+            // return 'Season';
+            var month = this.time.getMonth();
+            month = month + 1;
+            if (month >= 3 && month <= 5) this.season = 'Spring';
+            if (month >= 6 && month <= 8) this.season = 'Summer';
+            if (month >= 9 && month <= 11) this.season = 'Autumn';
+            if (month === 12 || month <= 2) this.season = 'Winter';
         }
-
     },
     computed: {
         formattedTime() {
@@ -36,16 +49,15 @@ Vue.component('show-time', {
             return this.time.getHours() + ':' + min + ':' + sec;
         },
         formattedSeason() {
-            var month = this.time.getMonth();
-            month = month + 1;
-            if (month >= 3 && month <= 5) return 'Spring';
-            if (month >= 6 && month <= 8) return 'Summer';
-            if (month >= 9 && month <= 11) return 'Autumn';
-            if (month === 12 || month <= 2) return 'Winter';
+            return this.season;
+        },
+        imgUrl() {
+            return `img/${this.season}.png`
         }
     },
     created() {
         console.log('show-time component created!');
-        setInterval(this.updateTime, 1000);
+        this.interval = setInterval(this.updateTime, 1000);
+        this.getSeason();
     }
 })
