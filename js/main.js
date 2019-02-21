@@ -4,11 +4,13 @@ import './cmps/count-down-cmp.js';
 window.vueApp = new Vue({
     el: '#app',
     data: {
-        timeStamp: Date.now() -12000
+        timeStamp: Date.now() - 12000
 
     },
     methods: {
-
+        updatetimeStamp(newTimeStamp) {
+            this.timeStamp = newTimeStamp;
+        }
     },
     computed: {
 

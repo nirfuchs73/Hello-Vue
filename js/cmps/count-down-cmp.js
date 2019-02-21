@@ -13,14 +13,19 @@ Vue.component('count-down', {
         return {
             count: Math.floor((Date.now() - this.timestamp) / 1000),
             interval: null,
-            isRed: false
+            isRed: false,
+            audioEnd: new Audio('sound/right.mp3')
         }
     },
     methods: {
         updateCount() {
             this.count--;
             if (this.count === 10) this.isRed = true;
-            if (this.count === 0) clearInterval(this.interval);
+            this.$emit('due', this.count)
+            if (this.count === 0) {
+                this.audioEnd.play();
+                clearInterval(this.interval);
+            }
         }
 
     },
