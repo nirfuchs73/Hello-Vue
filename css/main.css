@@ -5,7 +5,19 @@
     text-align: center;
 }
 
+.count-down {
+    background-color: lightgoldenrodyellow;
+    width: 600px;
+    height: 300px;
+    text-align: center;
+}
+
 .dark-bg {
     background-color: darkblue;
     color: white;
+}
+
+.red-bg {
+    /* background-color: red; */
+    color: red
 }
