@@ -1,6 +1,7 @@
 import './cmps/show-time-cmp.js';
 import './cmps/count-down-cmp.js';
 import './cmps/who-watch-cmp.js';
+import './cmps/show-coords.js';
 
 window.vueApp = new Vue({
     el: '#app',

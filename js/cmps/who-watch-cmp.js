@@ -6,13 +6,13 @@ Vue.component('who-watch', {
             <h3>{{user.name}}</h3>
             <button v-on:click="deleteUser()">Delete</button>
             <select>
-                {{formatedOptions}}
+                <option v-for="show in user.shows" :value="show.value">{{show}}</option>
             </select>
         </div>
     `,
     data() {
         return {
-            // isEnable: false
+            
         }
     },
     methods: {
@@ -23,19 +23,14 @@ Vue.component('who-watch', {
         selectUser() {
             // console.log(this.user.shows);
             this.$emit('selected', this.user);
-        }
+        },
     },
     computed: {
         imgUrl() {
             return `https://api.adorable.io/avatars/285/${this.user.name}.png`;
         },
-        formatedOptions() {
-            return `<option value="Ariel">Ariel</option>`;
-            // return '1111';
-        }
     },
     created() {
         console.log('who-watch component created!');
-        // this.isEnable = this.user.isEnable
     }
 })
