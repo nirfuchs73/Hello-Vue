@@ -7,11 +7,11 @@ window.vueApp = new Vue({
     el: '#app',
     data: {
         timeStamp: Date.now() - 12000,
-        users: [{ id: 1, name: 'user1', shows: ['show1', 'show2'], isEnable: true },
-        { id: 2, name: 'user2', shows: ['show1', 'show3'], isEnable: true },
-        { id: 3, name: 'user3', shows: ['show2'], isEnable: true },
-        { id: 4, name: 'user4', shows: ['show3', 'show4'], isEnable: true },
-        { id: 5, name: 'user5', shows: ['show1', 'show3', 'show5'], isEnable: true }],
+        users: [{ id: 1, name: 'user1', shows: ['show1', 'show2'], isShowen: true, isSelected: false },
+        { id: 2, name: 'user2', shows: ['show1', 'show3'], isShowen: true, isSelected: false },
+        { id: 3, name: 'user3', shows: ['show2'], isShowen: true, isSelected: false },
+        { id: 4, name: 'user4', shows: ['show3', 'show4'], isShowen: true, isSelected: false },
+        { id: 5, name: 'user5', shows: ['show1', 'show3', 'show5'], isShowen: true, isSelected: false }],
     },
     methods: {
         updatetimeStamp(newTimeStamp) {
@@ -25,16 +25,18 @@ window.vueApp = new Vue({
                 id: this.findNextId(),
                 name: userName,
                 shows: shows.split(','),
-                isEnable: true
+                isShowen: true,
+                isSelected: false
             }
             this.users.push(user);
         },
         selectUser(user) {
-            console.log(user);
+            // console.log(user);
             this.users.map((item) => {
-                item.isEnable = false;
+                item.isShowen = false;
             });
-            user.isEnable = true;
+            user.isShowen = true;
+            user.isSelected = true;
         },
         deleteUser(userId) {
             // console.log(userId);
@@ -44,7 +46,8 @@ window.vueApp = new Vue({
         },
         switchUser() {
             this.users.map((item) => {
-                item.isEnable = true;
+                item.isShowen = true;
+                item.isSelected = false;
             });
         },
         findNextId() {
