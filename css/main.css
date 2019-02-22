@@ -41,3 +41,10 @@
 .user-list img {
     max-height: 100px;
 }
+
+.show-coords {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold;
+}
