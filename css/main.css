@@ -1,5 +1,9 @@
-.flex{
+.flex {
     display: flex;
+}
+
+.hide {
+    display: none;
 }
 
 .show-time {

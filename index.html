@@ -20,10 +20,11 @@
         <section>
             <div class="user-list flex">
                 <who-watch v-for="(currUser, idx) in users" v-bind:user="currUser" :key="currUser.id"
-                    v-on:deleted="deleteUser">
+                    v-on:deleted="deleteUser" v-on:selected="selectUser">
                 </who-watch>
             </div>
             <button v-on:click="addUser()">Add User</button>
+            <button v-on:click="switchUser()">Switch User</button>
         </section>
 
     </div>
