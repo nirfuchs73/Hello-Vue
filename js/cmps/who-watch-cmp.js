@@ -2,8 +2,9 @@ Vue.component('who-watch', {
     props: ['user'],
     template: `
         <div class="who-watch">
-            <img v-bind:src="imgUrl" />
+            <img v-bind:src="imgUrl" v-on:click="selectUser()"/>
             <h3>{{user.name}}</h3>
+            <button v-on:click="deleteUser()">Delete</button>
         </div>
     `,
     data() {
@@ -12,8 +13,13 @@ Vue.component('who-watch', {
         }
     },
     methods: {
-
-
+        deleteUser() {
+            // console.log('delete ' + this.user.name);
+            this.$emit('deleted', this.user.id);
+        },
+        selectUser() {
+            console.log(this.user.shows);
+        }
     },
     computed: {
         imgUrl() {
