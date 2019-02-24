@@ -12,6 +12,7 @@ window.vueApp = new Vue({
         { id: 3, name: 'user3', shows: ['show2'], isShowen: true, isSelected: false },
         { id: 4, name: 'user4', shows: ['show3', 'show4'], isShowen: true, isSelected: false },
         { id: 5, name: 'user5', shows: ['show1', 'show3', 'show5'], isShowen: true, isSelected: false }],
+        isSelectedMode: false
     },
     methods: {
         updatetimeStamp(newTimeStamp) {
@@ -37,6 +38,7 @@ window.vueApp = new Vue({
             });
             user.isShowen = true;
             user.isSelected = true;
+            this.isSelectedMode = true;
         },
         deleteUser(userId) {
             // console.log(userId);
@@ -49,6 +51,7 @@ window.vueApp = new Vue({
                 item.isShowen = true;
                 item.isSelected = false;
             });
+            this.isSelectedMode = false;
         },
         findNextId() {
             var max = 0;
