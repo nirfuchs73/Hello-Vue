@@ -1,11 +1,11 @@
 Vue.component('who-watch', {
     props: ['user'],
     template: `
-        <div class="who-watch" v-bind:class="{'hide': !user.isShowen}">
-            <img v-bind:src="imgUrl" v-on:click="selectUser()"/>
+        <div class="who-watch" v-show="user.isShowen">
+            <img v-bind:src="imgUrl" v-on:click="selectUser"/>
             <h3>{{user.name}}</h3>
-            <button v-on:click="deleteUser()" v-bind:class="{'hide': user.isSelected}">Delete</button>
-            <select v-bind:class="{'hide': !user.isSelected}">
+            <button v-on:click="deleteUser" v-show="!user.isSelected">Delete</button>
+            <select v-show="user.isSelected">
                 <option v-for="show in user.shows" :value="show.value">{{show}}</option>
             </select>
         </div>
